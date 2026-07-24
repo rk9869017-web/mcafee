@@ -146,7 +146,7 @@
       color: white !important;
     }
 
-    /* ----- INTRO (removed 1000+ words badge) ----- */
+    /* ----- INTRO ----- */
     .intro-hero {
       background: linear-gradient(145deg, #e6f0fc 0%, #f3f9ff 100%);
       border-radius: 36px;
@@ -219,7 +219,7 @@
       font-size: 1rem;
     }
 
-    /* ----- GRID : 10 cards ----- */
+    /* ----- GRID : 10 cards (clickable) ----- */
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
@@ -237,6 +237,9 @@
       display: flex;
       flex-direction: column;
       position: relative;
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
     }
 
     .card:hover {
@@ -319,7 +322,7 @@
       font-size: 0.75rem;
     }
 
-    /* summary (no 1000+ badge) */
+    /* summary */
     .summary-deep {
       background: #f0f6fe;
       border-radius: 32px;
@@ -497,7 +500,7 @@
     </div>
   </header>
 
-  <!-- ========= INTRO (without 1000+ words badge) ========= -->
+  <!-- ========= INTRO ========= -->
   <div class="intro-hero">
     <h1>
       <i class="fas fa-shield-alt"></i> 
@@ -542,10 +545,11 @@
     </div>
   </div>
 
-  <!-- ========= GRID : 10 PRODUCTS ========= -->
+  <!-- ========= GRID : 10 PRODUCTS (clickable) ========= -->
   <div class="grid">
-    <!-- 1 -->
-    <div class="card rank-1">
+
+    <!-- 1. Bitdefender → Amazon link -->
+    <a href="https://www.amazon.com/Bitdefender-Total-Security-Download-Online/dp/B07CYFFH4H/ref=sr_1_1?crid=221QPEYI1PDPW&dib=eyJ2IjoiMSJ9.nR58AZoSI6H-OQbvRUHQLMZBBgm4b0wXNFXY2wUzXWZB2Wi7zBYgqNougAywhkBAVDJEZt764cCFQavm_Q3_nwhuo-y4t0RYEEE-UM8sub2HPGKL9KP7ZkU4jb-lgcn4xsJ2DNzw-2304xEnl8ORzMWOuwk9tD5xfcUICPJ_hKJIBdVOZ85kBYuLOEq4MFLUnYDsyGuBNIyA1OA8y-z0mSVyHdBHuiBPVkGfd2ypM4s.kTwOX2jqSekwKoj0buROY5T1NYWbvLMU4Qj-ZyfnGCM&dib_tag=se&keywords=Bitdefender&qid=1784904124&sprefix=bitdefender%2Caps%2C442&sr=8-1&th=1" target="_blank" class="card rank-1">
       <span class="rank-badge"><i class="fas fa-crown"></i> #1</span>
       <div class="product-name"><i class="fas fa-shield-virus"></i> Bitdefender</div>
       <span class="tagline">Total Security</span>
@@ -555,9 +559,10 @@
         <li><i class="fas fa-lock"></i> Multi‑layer ransomware</li>
         <li><i class="fas fa-globe"></i> 200+ countries</li>
       </ul>
-    </div>
-    <!-- 2 -->
-    <div class="card rank-2">
+    </a>
+
+    <!-- 2. Norton (Amazon search) -->
+    <a href="https://www.amazon.com/s?k=norton+360+deluxe" target="_blank" class="card rank-2">
       <span class="rank-badge"><i class="fas fa-medal"></i> #2</span>
       <div class="product-name"><i class="fas fa-shield-halved"></i> Norton 360</div>
       <span class="tagline">Deluxe</span>
@@ -567,9 +572,10 @@
         <li><i class="fas fa-user-secret"></i> Identity theft</li>
         <li><i class="fas fa-cloud"></i> 100GB backup</li>
       </ul>
-    </div>
-    <!-- 3 -->
-    <div class="card rank-3">
+    </a>
+
+    <!-- 3. McAfee (Amazon search) -->
+    <a href="https://www.amazon.com/s?k=mcafee+premium" target="_blank" class="card rank-3">
       <span class="rank-badge"><i class="fas fa-trophy"></i> #3</span>
       <div class="product-name"><i class="fas fa-user-shield"></i> McAfee+</div>
       <span class="tagline">Premium</span>
@@ -579,9 +585,10 @@
         <li><i class="fas fa-family"></i> Family plans</li>
         <li><i class="fas fa-robot"></i> Scam shield</li>
       </ul>
-    </div>
-    <!-- 4 -->
-    <div class="card">
+    </a>
+
+    <!-- 4. Kaspersky (Amazon search) -->
+    <a href="https://www.amazon.com/s?k=kaspersky+standard" target="_blank" class="card">
       <span class="rank-badge">#4</span>
       <div class="product-name"><i class="fas fa-bug"></i> Kaspersky</div>
       <span class="tagline">Standard</span>
@@ -591,9 +598,10 @@
         <li><i class="fas fa-wallet"></i> Secure payments</li>
         <li><i class="fas fa-tachometer-alt"></i> Minimal CPU</li>
       </ul>
-    </div>
-    <!-- 5 -->
-    <div class="card">
+    </a>
+
+    <!-- 5. ESET (Amazon search) -->
+    <a href="https://www.amazon.com/s?k=eset+smart+security" target="_blank" class="card">
       <span class="rank-badge">#5</span>
       <div class="product-name"><i class="fas fa-code"></i> ESET</div>
       <span class="tagline">Smart Security</span>
@@ -603,9 +611,10 @@
         <li><i class="fas fa-gamepad"></i> Gaming mode</li>
         <li><i class="fas fa-shield"></i> Firewall</li>
       </ul>
-    </div>
-    <!-- 6 -->
-    <div class="card">
+    </a>
+
+    <!-- 6. Avast (Amazon search) -->
+    <a href="https://www.amazon.com/s?k=avast+one" target="_blank" class="card">
       <span class="rank-badge">#6</span>
       <div class="product-name"><i class="fas fa-bolt"></i> Avast One</div>
       <span class="tagline">Essential</span>
@@ -615,9 +624,10 @@
         <li><i class="fas fa-broom"></i> Junk cleaner</li>
         <li><i class="fas fa-shield-alt"></i> Ransomware</li>
       </ul>
-    </div>
-    <!-- 7 -->
-    <div class="card">
+    </a>
+
+    <!-- 7. AVG (Amazon search) -->
+    <a href="https://www.amazon.com/s?k=avg+ultimate" target="_blank" class="card">
       <span class="rank-badge">#7</span>
       <div class="product-name"><i class="fas fa-flag"></i> AVG Ultimate</div>
       <span class="tagline">Multi‑device</span>
@@ -627,9 +637,10 @@
         <li><i class="fas fa-sync-alt"></i> Auto‑update</li>
         <li><i class="fas fa-network-wired"></i> Network scan</li>
       </ul>
-    </div>
-    <!-- 8 -->
-    <div class="card">
+    </a>
+
+    <!-- 8. Trend Micro (Amazon search) -->
+    <a href="https://www.amazon.com/s?k=trend+micro+maximum+security" target="_blank" class="card">
       <span class="rank-badge">#8</span>
       <div class="product-name"><i class="fas fa-cloud-upload-alt"></i> Trend Micro</div>
       <span class="tagline">Maximum Security</span>
@@ -639,9 +650,10 @@
         <li><i class="fas fa-credit-card"></i> Payguard</li>
         <li><i class="fas fa-facebook"></i> Social privacy</li>
       </ul>
-    </div>
-    <!-- 9 -->
-    <div class="card">
+    </a>
+
+    <!-- 9. Malwarebytes (Amazon search) -->
+    <a href="https://www.amazon.com/s?k=malwarebytes+premium" target="_blank" class="card">
       <span class="rank-badge">#9</span>
       <div class="product-name"><i class="fas fa-skull-crossbones"></i> Malwarebytes</div>
       <span class="tagline">Premium+</span>
@@ -651,9 +663,10 @@
         <li><i class="fas fa-fast-forward"></i> Hyper scan</li>
         <li><i class="fas fa-cookie-bite"></i> Anti‑spyware</li>
       </ul>
-    </div>
-    <!-- 10 -->
-    <div class="card">
+    </a>
+
+    <!-- 10. Sophos (Amazon search) -->
+    <a href="https://www.amazon.com/s?k=sophos+home+premium" target="_blank" class="card">
       <span class="rank-badge">#10</span>
       <div class="product-name"><i class="fas fa-network-wired"></i> Sophos Home</div>
       <span class="tagline">Premium</span>
@@ -663,10 +676,11 @@
         <li><i class="fas fa-child"></i> Parental controls</li>
         <li><i class="fas fa-file-shield"></i> Ransomware</li>
       </ul>
-    </div>
+    </a>
+
   </div>
 
-  <!-- ========= SUMMARY (no badge) ========= -->
+  <!-- ========= SUMMARY ========= -->
   <div class="summary-deep">
     <h3><i class="fas fa-file-alt"></i> Why these 10? · In‑Depth</h3>
     <p>
@@ -690,7 +704,7 @@
     </p>
   </div>
 
-  <!-- ========= FOOTER (structured with proper disclaimer) ========= -->
+  <!-- ========= FOOTER ========= -->
   <footer class="footer">
     <div class="footer-col">
       <strong><i class="fas fa-sitemap"></i> Quick Links</strong>
