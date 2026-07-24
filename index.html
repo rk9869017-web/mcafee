@@ -351,7 +351,7 @@
       color: #102433;
     }
 
-    /* ----- FOOTER (structured) ----- */
+    /* ----- FOOTER (structured with Terms & Privacy) ----- */
     .footer {
       margin-top: 2.5rem;
       border-top: 2px solid rgba(45, 122, 255, 0.08);
@@ -437,6 +437,69 @@
       color: #3b5b72;
     }
 
+    /* ===== PAGE STYLES (Terms & Privacy) ===== */
+    .page-content {
+      display: none;
+      padding: 2rem 1rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .page-content.active {
+      display: block;
+    }
+
+    .page-content h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #0a1e2e;
+      margin-bottom: 1rem;
+      border-bottom: 3px solid #2d7aff;
+      padding-bottom: 0.5rem;
+    }
+
+    .page-content h3 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #0a1e2e;
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .page-content p {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: #1a3349;
+      margin-bottom: 1rem;
+    }
+
+    .page-content ul {
+      margin-left: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .page-content ul li {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: #1a3349;
+    }
+
+    .page-back {
+      display: inline-block;
+      margin-top: 1.5rem;
+      padding: 0.5rem 1.5rem;
+      background: #0a1e2e;
+      color: white;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.2s;
+    }
+
+    .page-back:hover {
+      background: #2d7aff;
+    }
+
     /* ===== RESPONSIVE ===== */
     @media (max-width: 1024px) {
       .container { padding: 1.8rem; }
@@ -480,7 +543,7 @@
   </style>
 </head>
 <body>
-<div class="container">
+<div class="container" id="mainContainer">
 
   <!-- ========= HEADER ========= -->
   <header class="top-header">
@@ -492,7 +555,7 @@
       </div>
     </div>
     <div class="nav-links">
-      <a href="#"><i class="fas fa-home"></i> Home</a>
+      <a href="#" onclick="showHome()"><i class="fas fa-home"></i> Home</a>
       <a href="#"><i class="fas fa-store"></i> Shop</a>
       <a href="#"><i class="fas fa-address-card"></i> About</a>
       <a href="#"><i class="fas fa-envelope"></i> Contact</a>
@@ -500,215 +563,270 @@
     </div>
   </header>
 
-  <!-- ========= INTRO ========= -->
-  <div class="intro-hero">
-    <h1>
-      <i class="fas fa-shield-alt"></i> 
-      Top 10 Antivirus Software – 2026
-    </h1>
-    <div class="intro-grid">
-      <div class="intro-text">
-        <p>
-          <strong>Cybersecurity in 2026</strong> is no longer optional — it's essential. 
-          With <strong>ransomware, phishing, zero‑day exploits, and identity theft</strong> 
-          at an all‑time high, choosing the right antivirus is your first line of defence. 
-          This expert guide presents the <strong>10 best antivirus suites</strong>, rigorously 
-          evaluated by independent labs (AV‑Test, AV‑Comparatives) and real‑world usage. 
-          Each product excels in <strong>detection rates, system performance, and extra privacy layers</strong> 
-          like VPN, password manager, parental controls, and cloud backup.
-        </p>
-        <p>
-          <strong>Bitdefender</strong> leads with perfect scores, <strong>Norton 360</strong> offers 
-          unmatched identity protection, and <strong>McAfee+</strong> shines for families. 
-          <strong>Kaspersky</strong> and <strong>ESET</strong> are beloved for low resource usage, 
-          while <strong>Avast One</strong> and <strong>AVG Ultimate</strong> bring excellent free 
-          and premium tiers. <strong>Trend Micro</strong> uses cloud AI to block threats pre‑infection, 
-          <strong>Malwarebytes</strong> specialises in zero‑day malware, and <strong>Sophos Home</strong> 
-          delivers enterprise‑grade protection for households.
-        </p>
-        <p>
-          All products support <strong>Windows, macOS, Android, and iOS</strong>, with 
-          multi‑device plans available. Whether you're a gamer, remote worker, or parent, 
-          this list covers every need. Read on for detailed feature breakdowns.
-        </p>
+  <!-- ========= HOME PAGE (default visible) ========= -->
+  <div id="homePage">
+    <!-- INTRO -->
+    <div class="intro-hero">
+      <h1>
+        <i class="fas fa-shield-alt"></i> 
+        Top 10 Antivirus Software – 2026
+      </h1>
+      <div class="intro-grid">
+        <div class="intro-text">
+          <p>
+            <strong>Cybersecurity in 2026</strong> is no longer optional — it's essential. 
+            With <strong>ransomware, phishing, zero‑day exploits, and identity theft</strong> 
+            at an all‑time high, choosing the right antivirus is your first line of defence. 
+            This expert guide presents the <strong>10 best antivirus suites</strong>, rigorously 
+            evaluated by independent labs (AV‑Test, AV‑Comparatives) and real‑world usage. 
+            Each product excels in <strong>detection rates, system performance, and extra privacy layers</strong> 
+            like VPN, password manager, parental controls, and cloud backup.
+          </p>
+          <p>
+            <strong>Bitdefender</strong> leads with perfect scores, <strong>Norton 360</strong> offers 
+            unmatched identity protection, and <strong>McAfee+</strong> shines for families. 
+            <strong>Kaspersky</strong> and <strong>ESET</strong> are beloved for low resource usage, 
+            while <strong>Avast One</strong> and <strong>AVG Ultimate</strong> bring excellent free 
+            and premium tiers. <strong>Trend Micro</strong> uses cloud AI to block threats pre‑infection, 
+            <strong>Malwarebytes</strong> specialises in zero‑day malware, and <strong>Sophos Home</strong> 
+            delivers enterprise‑grade protection for households.
+          </p>
+          <p>
+            All products support <strong>Windows, macOS, Android, and iOS</strong>, with 
+            multi‑device plans available. Whether you're a gamer, remote worker, or parent, 
+            this list covers every need. Read on for detailed feature breakdowns.
+          </p>
+        </div>
+        <ul class="intro-points">
+          <li><i class="fas fa-check-circle"></i> 100% malware detection (top labs)</li>
+          <li><i class="fas fa-lock"></i> Real‑time ransomware defence</li>
+          <li><i class="fas fa-globe"></i> VPN & privacy tools included</li>
+          <li><i class="fas fa-user-shield"></i> Identity theft protection</li>
+          <li><i class="fas fa-cloud"></i> Cloud backup & secure storage</li>
+          <li><i class="fas fa-child"></i> Parental controls & filtering</li>
+          <li><i class="fas fa-tachometer-alt"></i> Minimal system impact</li>
+          <li><i class="fas fa-headset"></i> 24/7 customer support</li>
+        </ul>
       </div>
-      <ul class="intro-points">
-        <li><i class="fas fa-check-circle"></i> 100% malware detection (top labs)</li>
-        <li><i class="fas fa-lock"></i> Real‑time ransomware defence</li>
-        <li><i class="fas fa-globe"></i> VPN & privacy tools included</li>
-        <li><i class="fas fa-user-shield"></i> Identity theft protection</li>
-        <li><i class="fas fa-cloud"></i> Cloud backup & secure storage</li>
-        <li><i class="fas fa-child"></i> Parental controls & filtering</li>
-        <li><i class="fas fa-tachometer-alt"></i> Minimal system impact</li>
-        <li><i class="fas fa-headset"></i> 24/7 customer support</li>
-      </ul>
+    </div>
+
+    <!-- GRID : 10 PRODUCTS -->
+    <div class="grid">
+      <!-- 1. Bitdefender -->
+      <a href="https://www.amazon.com/Bitdefender-Total-Security-Download-Online/dp/B07CYFFH4H/ref=sr_1_1?crid=221QPEYI1PDPW&dib=eyJ2IjoiMSJ9.nR58AZoSI6H-OQbvRUHQLMZBBgm4b0wXNFXY2wUzXWZB2Wi7zBYgqNougAywhkBAVDJEZt764cCFQavm_Q3_nwhuo-y4t0RYEEE-UM8sub2HPGKL9KP7ZkU4jb-lgcn4xsJ2DNzw-2304xEnl8ORzMWOuwk9tD5xfcUICPJ_hKJIBdVOZ85kBYuLOEq4MFLUnYDsyGuBNIyA1OA8y-z0mSVyHdBHuiBPVkGfd2ypM4s.kTwOX2jqSekwKoj0buROY5T1NYWbvLMU4Qj-ZyfnGCM&dib_tag=se&keywords=Bitdefender&qid=1784904124&sprefix=bitdefender%2Caps%2C442&sr=8-1&th=1" target="_blank" class="card rank-1">
+        <span class="rank-badge"><i class="fas fa-crown"></i> #1</span>
+        <div class="product-name"><i class="fas fa-shield-virus"></i> Bitdefender</div>
+        <span class="tagline">Total Security</span>
+        <div class="description">Perfect detection, minimal drag. Advanced ransomware, VPN, anti‑tracker.</div>
+        <ul class="feature-list">
+          <li><i class="fas fa-check-circle"></i> 100% detection rate</li>
+          <li><i class="fas fa-lock"></i> Multi‑layer ransomware</li>
+          <li><i class="fas fa-globe"></i> 200+ countries</li>
+        </ul>
+      </a>
+
+      <!-- 2. Norton 360 -->
+      <a href="https://www.amazon.com/NEW-Norton-360-Premium-Monitoring/dp/B07Q6B5YL5/ref=sr_1_1?crid=38W1JD1V6DHWU&dib=eyJ2IjoiMSJ9.vLxKkPmK3XTrAcqh7LfFzUd3KdY7c33dqIcTt6IxTS9tFjgwOEL2NricoErty-blJ0tmjg6wPKE6SwKxWTmXxB2Zi6Vh-a66JhzigUbO5pXGbK5iLk_Hawq8q7BpYuO6QHrDM1GxjtWS1wJIj0JBOXrwSPvNitJoaA9lcvUILacnZvz4ilh_vMa0wP321rh4C99uzXsPOCgq9S3CUgmtl8AvZMuWyPBqAGO3XmaSd7s.4yT9KBSsnPUtUpMWpHhehZZL7sCesUouFDMS2M_GBw4&dib_tag=se&keywords=Norton%2B360&qid=1784904512&sprefix=norton%2B360%2Caps%2C524&sr=8-1&th=1" target="_blank" class="card rank-2">
+        <span class="rank-badge"><i class="fas fa-medal"></i> #2</span>
+        <div class="product-name"><i class="fas fa-shield-halved"></i> Norton 360</div>
+        <span class="tagline">Deluxe</span>
+        <div class="description">LifeLock identity, dark web monitor, 100GB cloud, secure VPN.</div>
+        <ul class="feature-list">
+          <li><i class="fas fa-check-circle"></i> Real‑time threat</li>
+          <li><i class="fas fa-user-secret"></i> Identity theft</li>
+          <li><i class="fas fa-cloud"></i> 100GB backup</li>
+        </ul>
+      </a>
+
+      <!-- 3. McAfee+ -->
+      <a href="https://www.amazon.com/McAfee-Individual-Monitoring-Protection-Subscription/dp/B0BB2N3SM3/ref=sr_1_1?crid=UQHSY5JEEU5B&dib=eyJ2IjoiMSJ9.9NrIxKAVNOCxN9tOyhOS0gg-VmdLwKhDM0MxVjgd5FqaGkKDu-ZvUo_8oPwFqt47ll2yutrG5rm0O-0z3jBOJEa2FguYtrh-BYkQLx3KKoTQuDcP1fWcjssbEt6UyMVd0n8wiXIgQ05HAwExyAZnHWIqfOgdF7mwmAsQvtgRFdrAOLkAN8x6HRS50VUneqfERlXvZIAjp0Pg2MukZtHtoBj1zNwta70-1eG5U7saSQFN6m9ZFH5mtMwE8ujE-Ulk_DE94aDjOpSqcOAvUm4NlcVGP_mehMvyk0R1o3QEOrQ.qz7yVdDpNYLkxWylFNBv6F1OKMTv4Vkys2kkJyFqSEQ&dib_tag=se&keywords=McAfee%2B&qid=1784904692&sprefix=mcafee%2B%2Caps%2C493&sr=8-1&th=1" target="_blank" class="card rank-3">
+        <span class="rank-badge"><i class="fas fa-trophy"></i> #3</span>
+        <div class="product-name"><i class="fas fa-user-shield"></i> McAfee+</div>
+        <span class="tagline">Premium</span>
+        <div class="description">Unlimited VPN, password manager, AI scam detection, family plans.</div>
+        <ul class="feature-list">
+          <li><i class="fas fa-check-circle"></i> Unlimited VPN</li>
+          <li><i class="fas fa-family"></i> Family plans</li>
+          <li><i class="fas fa-robot"></i> Scam shield</li>
+        </ul>
+      </a>
+
+      <!-- 4. Kaspersky -->
+      <a href="https://www.amazon.in/Kaspersky-Anti-Virus-Security-Latest-Version/dp/B08B1SL726/ref=asc_df_B08B1SL726?mcid=1a29f1821bc03ab8978241f05341391e&tag=googleshopdes-21&linkCode=df0&hvadid=709963102478&hvpos=&hvnetw=g&hvrand=10608568386159594723&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9301033&hvtargid=pla-923973914624&psc=1&hvocijid=10608568386159594723-B08B1SL726-&hvexpln=0&gad_source=1" target="_blank" class="card">
+        <span class="rank-badge">#4</span>
+        <div class="product-name"><i class="fas fa-bug"></i> Kaspersky</div>
+        <span class="tagline">Standard</span>
+        <div class="description">Lightweight, anti‑phishing, secure payments, minimal CPU usage.</div>
+        <ul class="feature-list">
+          <li><i class="fas fa-check-circle"></i> Anti‑phishing</li>
+          <li><i class="fas fa-wallet"></i> Secure payments</li>
+          <li><i class="fas fa-tachometer-alt"></i> Minimal CPU</li>
+        </ul>
+      </a>
+
+      <!-- 5. ESET -->
+      <a href="https://www.amazon.com/s?k=eset+smart+security" target="_blank" class="card">
+        <span class="rank-badge">#5</span>
+        <div class="product-name"><i class="fas fa-code"></i> ESET</div>
+        <span class="tagline">Smart Security</span>
+        <div class="description">ML detection, gaming mode, low false positives, built‑in firewall.</div>
+        <ul class="feature-list">
+          <li><i class="fas fa-check-circle"></i> ML detection</li>
+          <li><i class="fas fa-gamepad"></i> Gaming mode</li>
+          <li><i class="fas fa-shield"></i> Firewall</li>
+        </ul>
+      </a>
+
+      <!-- 6. Avast -->
+      <a href="https://www.amazon.com/Avast-Ultimate-User-Year/dp/B08CY8PSNG/ref=sr_1_2?crid=3PLIJMLFATUVT&dib=eyJ2IjoiMSJ9.lwqIylDCZ68vDay-KcKR4g567Re6lP_8DDEi3igcnjUhxtL3GLTETmo8jctBx9ilJmlZ0-lI5Ke_cp_e5CFpTmyAvEmRnSn8hrvL4v2Kq8BbWV_TqEZjv7lEVCIz5IjBSB_hVXO7J3cEV8i_BfCdHhhFZUhQgTlPslaZXBIwd2jOKv9-0wGMSUFa3t0O5QbWqKXPkmn2ApXl-REGOIBbOBANEoJ3vQs9Eok7e1KUxaE.wMOeRCK6-HDGY088ofqm3hVilX-eMAyhzNXht1bR-fQ&dib_tag=se&keywords=avast+one&qid=1784905449&sprefix=Avast+one%2Caps%2C406&sr=8-2" target="_blank" class="card">
+        <span class="rank-badge">#6</span>
+        <div class="product-name"><i class="fas fa-bolt"></i> Avast One</div>
+        <span class="tagline">Essential</span>
+        <div class="description">Free & premium: VPN, cleanup, breach alerts, Wi‑Fi scanner.</div>
+        <ul class="feature-list">
+          <li><i class="fas fa-check-circle"></i> Wi‑Fi scanner</li>
+          <li><i class="fas fa-broom"></i> Junk cleaner</li>
+          <li><i class="fas fa-shield-alt"></i> Ransomware</li>
+        </ul>
+      </a>
+
+      <!-- 7. AVG -->
+      <a href="https://www.amazon.com/AVG-BreachGuard-Privacy-Security-Download/dp/B096KKDYDQ/ref=sr_1_3?crid=3I3BZLIA3VRRW&dib=eyJ2IjoiMSJ9.aJG12DXvDgMkAiXtZeP-wLKOe3GXSBQTfMkSm1LGGkBqsFADwDKROZd7RMSeigznw-miFZW98Nr_akLcGoZ-PUTlkcags_6DlkjyzY0OMTHvWeB8Kn6ncV5UcLIV4mzHkNXaMaTiTJFwyi4wYUdIZ4kUvd3gb06tlIaLR6O54ewedmgHUJdh4i4Q2ggpKu7WsG8DDfTg1xlirFM97rh6x_shj66I1jVJVj1if95n9i4.W_iSHuElNsVg3mvsZD4wecfcVpzzT2pgASTJZKFpEEk&dib_tag=se&keywords=avg+ultimate&qid=1784905516&sprefix=avg+ultimate+%2Caps%2C430&sr=8-3" target="_blank" class="card">
+        <span class="rank-badge">#7</span>
+        <div class="product-name"><i class="fas fa-flag"></i> AVG Ultimate</div>
+        <span class="tagline">Multi‑device</span>
+        <div class="description">Webcam shield, auto‑update, performance tune‑up, network scanner.</div>
+        <ul class="feature-list">
+          <li><i class="fas fa-check-circle"></i> Webcam shield</li>
+          <li><i class="fas fa-sync-alt"></i> Auto‑update</li>
+          <li><i class="fas fa-network-wired"></i> Network scan</li>
+        </ul>
+      </a>
+
+      <!-- 8. Trend Micro -->
+      <a href="https://www.amazon.com/Trend-Micro-Maximum-Security-Auto-Renewal/dp/B0GTS1YL85/ref=sr_1_1?crid=24FY8YJ951JV0&dib=eyJ2IjoiMSJ9.atPaUrdxxrLYo4p6NkXfz64rEtvkoB8lFGxElKcPZvvP_B-vQS-mDWsfWDvoox_qsTcP5UTt9whkNgxyVw-zxgJFe5o74SQfJvqHLSpHwyx_PI1v9a_DdcDSoMY964PIUoQTxXvOeJ3k9byi6a66ONBXMCDyQsytkg4blMh3-skGFdLfIojFj_z_UmxaEcECH9Pv6e4fYeG1AkoLp-_XuALLSJvnQCwAzU8YysATxKc.8hvvams9OiuWKtNEI6JO373p0udoJhx_SXLpOu00Kag&dib_tag=se&keywords=Trend+Micro&qid=1784905549&sprefix=trend+micro%2Caps%2C448&sr=8-1" target="_blank" class="card">
+        <span class="rank-badge">#8</span>
+        <div class="product-name"><i class="fas fa-cloud-upload-alt"></i> Trend Micro</div>
+        <span class="tagline">Maximum Security</span>
+        <div class="description">Cloud AI, Payguard, social privacy, blocks threats pre‑infection.</div>
+        <ul class="feature-list">
+          <li><i class="fas fa-check-circle"></i> Cloud AI</li>
+          <li><i class="fas fa-credit-card"></i> Payguard</li>
+          <li><i class="fas fa-facebook"></i> Social privacy</li>
+        </ul>
+      </a>
+
+      <!-- 9. Malwarebytes -->
+      <a href="https://www.amazon.com/Malwarebytes-Amazon-Exclusive-Devices-Android/dp/B084L8X5VV/ref=sr_1_1?crid=2RX7OKSWN0K5Y&dib=eyJ2IjoiMSJ9.FA83SgND7BSIt3eBxcv_kkOSxqkNPWtNk4sp3aFBn48GSiCguhGZWdOc5VnOKjoDm3pKsZ-vi334baA2nfzaPAgYKmlET0el14M0-HhxqnUJepa4W-ykZGEc_zHhtLHwoHiJwF6WStUnpOuSpPqCb1Oq4bQz8r35J3sfm4FCegi93ouMKpwjtiArZIBWP0CtLVx9zZtNLUs25DSMi0CIvzQka1zNDCux7XJrDcA9QMo.WvJU19EJHo82TClmPo2ia-bnINEAcmSI0-67IZ3tH-A&dib_tag=se&keywords=Malwarebytes&qid=1784905577&sprefix=malwarebytes%2Caps%2C416&sr=8-1&th=1" target="_blank" class="card">
+        <span class="rank-badge">#9</span>
+        <div class="product-name"><i class="fas fa-skull-crossbones"></i> Malwarebytes</div>
+        <span class="tagline">Premium+</span>
+        <div class="description">Zero‑day block, hyper scan, anti‑spyware, lightweight footprint.</div>
+        <ul class="feature-list">
+          <li><i class="fas fa-check-circle"></i> Zero‑day block</li>
+          <li><i class="fas fa-fast-forward"></i> Hyper scan</li>
+          <li><i class="fas fa-cookie-bite"></i> Anti‑spyware</li>
+        </ul>
+      </a>
+
+      <!-- 10. Sophos -->
+      <a href="https://www.amazon.com/Rack-Mount-Kit-Sophos-RM-SR-T12/dp/B09RC7HW1W/ref=sr_1_1?crid=2WNBC2XBUTBM8&dib=eyJ2IjoiMSJ9.3dJ3n_quKWJRwGHseRaQgBtkBco7oLG5ocBLVRSOBcOeOyQNuh_PwBUvvFiWJ9rsO2qXgV4SxtEeBV-ZWpw5BvqW_nJ3SG99vgYueNEUz1I.jkscVi_Am5aVqYvLYOPOKM4ocUv2THPzXj4xAKSb5yo&dib_tag=se&keywords=Sophos+home&qid=1784905625&sprefix=sophos+home%2Caps%2C428&sr=8-1" target="_blank" class="card">
+        <span class="rank-badge">#10</span>
+        <div class="product-name"><i class="fas fa-network-wired"></i> Sophos Home</div>
+        <span class="tagline">Premium</span>
+        <div class="description">Enterprise‑grade, remote management, parental controls, ransomware.</div>
+        <ul class="feature-list">
+          <li><i class="fas fa-check-circle"></i> Remote manage</li>
+          <li><i class="fas fa-child"></i> Parental controls</li>
+          <li><i class="fas fa-file-shield"></i> Ransomware</li>
+        </ul>
+      </a>
+    </div>
+
+    <!-- SUMMARY -->
+    <div class="summary-deep">
+      <h3><i class="fas fa-file-alt"></i> Why these 10? · In‑Depth</h3>
+      <p>
+        <strong>Bitdefender</strong> consistently tops charts with near‑perfect protection and 
+        a feature‑rich suite (VPN, anti‑tracker, ransomware remediation). <strong>Norton 360</strong> 
+        is the ultimate identity protection bundle with LifeLock and dark web monitoring. 
+        <strong>McAfee+</strong> offers unlimited VPN and family‑oriented tools. <strong>Kaspersky</strong> 
+        and <strong>ESET</strong> are the go‑to choices for users who demand low system impact 
+        and high configurability. <strong>Avast One</strong> and <strong>AVG Ultimate</strong> 
+        provide reliable protection with generous free tiers. <strong>Trend Micro</strong> uses 
+        cloud AI to stop threats before they execute, while <strong>Malwarebytes</strong> excels 
+        at zero‑day and exploit protection. Finally, <strong>Sophos Home</strong> brings 
+        enterprise‑grade features like remote management and advanced web filtering to home users.
+      </p>
+      <p style="margin-top: 0.6rem;">
+        All solutions include <strong>real‑time scanning, anti‑phishing, firewall, and ransomware 
+        defence</strong>. Most also bundle <strong>VPN, password manager, parental controls, and 
+        system optimisers</strong>. With 2026 threats evolving faster than ever, this top 10 
+        represents the gold standard in digital protection — backed by independent lab tests 
+        and millions of users worldwide.
+      </p>
     </div>
   </div>
 
-  <!-- ========= GRID : 10 PRODUCTS (clickable) ========= -->
-  <div class="grid">
-
-    <!-- 1. Bitdefender → Amazon link -->
-    <a href="https://www.amazon.com/Bitdefender-Total-Security-Download-Online/dp/B07CYFFH4H/ref=sr_1_1?crid=221QPEYI1PDPW&dib=eyJ2IjoiMSJ9.nR58AZoSI6H-OQbvRUHQLMZBBgm4b0wXNFXY2wUzXWZB2Wi7zBYgqNougAywhkBAVDJEZt764cCFQavm_Q3_nwhuo-y4t0RYEEE-UM8sub2HPGKL9KP7ZkU4jb-lgcn4xsJ2DNzw-2304xEnl8ORzMWOuwk9tD5xfcUICPJ_hKJIBdVOZ85kBYuLOEq4MFLUnYDsyGuBNIyA1OA8y-z0mSVyHdBHuiBPVkGfd2ypM4s.kTwOX2jqSekwKoj0buROY5T1NYWbvLMU4Qj-ZyfnGCM&dib_tag=se&keywords=Bitdefender&qid=1784904124&sprefix=bitdefender%2Caps%2C442&sr=8-1&th=1" target="_blank" class="card rank-1">
-      <span class="rank-badge"><i class="fas fa-crown"></i> #1</span>
-      <div class="product-name"><i class="fas fa-shield-virus"></i> Bitdefender</div>
-      <span class="tagline">Total Security</span>
-      <div class="description">Perfect detection, minimal drag. Advanced ransomware, VPN, anti‑tracker.</div>
-      <ul class="feature-list">
-        <li><i class="fas fa-check-circle"></i> 100% detection rate</li>
-        <li><i class="fas fa-lock"></i> Multi‑layer ransomware</li>
-        <li><i class="fas fa-globe"></i> 200+ countries</li>
-      </ul>
-    </a>
-
-    <!-- 2. Norton 360 → specific Amazon link -->
-    <a href="https://www.amazon.com/NEW-Norton-360-Premium-Monitoring/dp/B07Q6B5YL5/ref=sr_1_1?crid=38W1JD1V6DHWU&dib=eyJ2IjoiMSJ9.vLxKkPmK3XTrAcqh7LfFzUd3KdY7c33dqIcTt6IxTS9tFjgwOEL2NricoErty-blJ0tmjg6wPKE6SwKxWTmXxB2Zi6Vh-a66JhzigUbO5pXGbK5iLk_Hawq8q7BpYuO6QHrDM1GxjtWS1wJIj0JBOXrwSPvNitJoaA9lcvUILacnZvz4ilh_vMa0wP321rh4C99uzXsPOCgq9S3CUgmtl8AvZMuWyPBqAGO3XmaSd7s.4yT9KBSsnPUtUpMWpHhehZZL7sCesUouFDMS2M_GBw4&dib_tag=se&keywords=Norton%2B360&qid=1784904512&sprefix=norton%2B360%2Caps%2C524&sr=8-1&th=1" target="_blank" class="card rank-2">
-      <span class="rank-badge"><i class="fas fa-medal"></i> #2</span>
-      <div class="product-name"><i class="fas fa-shield-halved"></i> Norton 360</div>
-      <span class="tagline">Deluxe</span>
-      <div class="description">LifeLock identity, dark web monitor, 100GB cloud, secure VPN.</div>
-      <ul class="feature-list">
-        <li><i class="fas fa-check-circle"></i> Real‑time threat</li>
-        <li><i class="fas fa-user-secret"></i> Identity theft</li>
-        <li><i class="fas fa-cloud"></i> 100GB backup</li>
-      </ul>
-    </a>
-
-    <!-- 3. McAfee+ → specific Amazon link -->
-    <a href="https://www.amazon.com/McAfee-Individual-Monitoring-Protection-Subscription/dp/B0BB2N3SM3/ref=sr_1_1?crid=UQHSY5JEEU5B&dib=eyJ2IjoiMSJ9.9NrIxKAVNOCxN9tOyhOS0gg-VmdLwKhDM0MxVjgd5FqaGkKDu-ZvUo_8oPwFqt47ll2yutrG5rm0O-0z3jBOJEa2FguYtrh-BYkQLx3KKoTQuDcP1fWcjssbEt6UyMVd0n8wiXIgQ05HAwExyAZnHWIqfOgdF7mwmAsQvtgRFdrAOLkAN8x6HRS50VUneqfERlXvZIAjp0Pg2MukZtHtoBj1zNwta70-1eG5U7saSQFN6m9ZFH5mtMwE8ujE-Ulk_DE94aDjOpSqcOAvUm4NlcVGP_mehMvyk0R1o3QEOrQ.qz7yVdDpNYLkxWylFNBv6F1OKMTv4Vkys2kkJyFqSEQ&dib_tag=se&keywords=McAfee%2B&qid=1784904692&sprefix=mcafee%2B%2Caps%2C493&sr=8-1&th=1" target="_blank" class="card rank-3">
-      <span class="rank-badge"><i class="fas fa-trophy"></i> #3</span>
-      <div class="product-name"><i class="fas fa-user-shield"></i> McAfee+</div>
-      <span class="tagline">Premium</span>
-      <div class="description">Unlimited VPN, password manager, AI scam detection, family plans.</div>
-      <ul class="feature-list">
-        <li><i class="fas fa-check-circle"></i> Unlimited VPN</li>
-        <li><i class="fas fa-family"></i> Family plans</li>
-        <li><i class="fas fa-robot"></i> Scam shield</li>
-      </ul>
-    </a>
-
-    <!-- 4. Kaspersky → specific Amazon.in link -->
-    <a href="https://www.amazon.in/Kaspersky-Anti-Virus-Security-Latest-Version/dp/B08B1SL726/ref=asc_df_B08B1SL726?mcid=1a29f1821bc03ab8978241f05341391e&tag=googleshopdes-21&linkCode=df0&hvadid=709963102478&hvpos=&hvnetw=g&hvrand=10608568386159594723&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9301033&hvtargid=pla-923973914624&psc=1&hvocijid=10608568386159594723-B08B1SL726-&hvexpln=0&gad_source=1" target="_blank" class="card">
-      <span class="rank-badge">#4</span>
-      <div class="product-name"><i class="fas fa-bug"></i> Kaspersky</div>
-      <span class="tagline">Standard</span>
-      <div class="description">Lightweight, anti‑phishing, secure payments, minimal CPU usage.</div>
-      <ul class="feature-list">
-        <li><i class="fas fa-check-circle"></i> Anti‑phishing</li>
-        <li><i class="fas fa-wallet"></i> Secure payments</li>
-        <li><i class="fas fa-tachometer-alt"></i> Minimal CPU</li>
-      </ul>
-    </a>
-
-    <!-- 5. ESET (Amazon search) -->
-    <a href="https://www.amazon.in/Kaspersky-Anti-Virus-Security-Latest-Version/dp/B08B1SL726/ref=asc_df_B08B1SL726?mcid=1a29f1821bc03ab8978241f05341391e&tag=googleshopdes-21&linkCode=df0&hvadid=709963102478&hvpos=&hvnetw=g&hvrand=10608568386159594723&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9301033&hvtargid=pla-923973914624&psc=1&hvocijid=10608568386159594723-B08B1SL726-&hvexpln=0&gad_source=1" target="_blank" class="card">
-      <span class="rank-badge">#5</span>
-      <div class="product-name"><i class="fas fa-code"></i> ESET</div>
-      <span class="tagline">Smart Security</span>
-      <div class="description">ML detection, gaming mode, low false positives, built‑in firewall.</div>
-      <ul class="feature-list">
-        <li><i class="fas fa-check-circle"></i> ML detection</li>
-        <li><i class="fas fa-gamepad"></i> Gaming mode</li>
-        <li><i class="fas fa-shield"></i> Firewall</li>
-      </ul>
-    </a>
-
-    <!-- 6. Avast (Amazon search) -->
-    <a href="https://www.amazon.com/Avast-Ultimate-User-Year/dp/B08CY8PSNG/ref=sr_1_2?crid=3PLIJMLFATUVT&dib=eyJ2IjoiMSJ9.lwqIylDCZ68vDay-KcKR4g567Re6lP_8DDEi3igcnjUhxtL3GLTETmo8jctBx9ilJmlZ0-lI5Ke_cp_e5CFpTmyAvEmRnSn8hrvL4v2Kq8BbWV_TqEZjv7lEVCIz5IjBSB_hVXO7J3cEV8i_BfCdHhhFZUhQgTlPslaZXBIwd2jOKv9-0wGMSUFa3t0O5QbWqKXPkmn2ApXl-REGOIBbOBANEoJ3vQs9Eok7e1KUxaE.wMOeRCK6-HDGY088ofqm3hVilX-eMAyhzNXht1bR-fQ&dib_tag=se&keywords=avast+one&qid=1784905449&sprefix=Avast+one%2Caps%2C406&sr=8-2" target="_blank" class="card">
-      <span class="rank-badge">#6</span>
-      <div class="product-name"><i class="fas fa-bolt"></i> Avast One</div>
-      <span class="tagline">Essential</span>
-      <div class="description">Free & premium: VPN, cleanup, breach alerts, Wi‑Fi scanner.</div>
-      <ul class="feature-list">
-        <li><i class="fas fa-check-circle"></i> Wi‑Fi scanner</li>
-        <li><i class="fas fa-broom"></i> Junk cleaner</li>
-        <li><i class="fas fa-shield-alt"></i> Ransomware</li>
-      </ul>
-    </a>
-
-    <!-- 7. AVG (Amazon search) -->
-    <a href="https://www.amazon.com/AVG-BreachGuard-Privacy-Security-Download/dp/B096KKDYDQ/ref=sr_1_3?crid=3I3BZLIA3VRRW&dib=eyJ2IjoiMSJ9.aJG12DXvDgMkAiXtZeP-wLKOe3GXSBQTfMkSm1LGGkBqsFADwDKROZd7RMSeigznw-miFZW98Nr_akLcGoZ-PUTlkcags_6DlkjyzY0OMTHvWeB8Kn6ncV5UcLIV4mzHkNXaMaTiTJFwyi4wYUdIZ4kUvd3gb06tlIaLR6O54ewedmgHUJdh4i4Q2ggpKu7WsG8DDfTg1xlirFM97rh6x_shj66I1jVJVj1if95n9i4.W_iSHuElNsVg3mvsZD4wecfcVpzzT2pgASTJZKFpEEk&dib_tag=se&keywords=avg+ultimate&qid=1784905516&sprefix=avg+ultimate+%2Caps%2C430&sr=8-3" target="_blank" class="card">
-      <span class="rank-badge">#7</span>
-      <div class="product-name"><i class="fas fa-flag"></i> AVG Ultimate</div>
-      <span class="tagline">Multi‑device</span>
-      <div class="description">Webcam shield, auto‑update, performance tune‑up, network scanner.</div>
-      <ul class="feature-list">
-        <li><i class="fas fa-check-circle"></i> Webcam shield</li>
-        <li><i class="fas fa-sync-alt"></i> Auto‑update</li>
-        <li><i class="fas fa-network-wired"></i> Network scan</li>
-      </ul>
-    </a>
-
-    <!-- 8. Trend Micro (Amazon search) -->
-    <a href="https://www.amazon.com/Trend-Micro-Maximum-Security-Auto-Renewal/dp/B0GTS1YL85/ref=sr_1_1?crid=24FY8YJ951JV0&dib=eyJ2IjoiMSJ9.atPaUrdxxrLYo4p6NkXfz64rEtvkoB8lFGxElKcPZvvP_B-vQS-mDWsfWDvoox_qsTcP5UTt9whkNgxyVw-zxgJFe5o74SQfJvqHLSpHwyx_PI1v9a_DdcDSoMY964PIUoQTxXvOeJ3k9byi6a66ONBXMCDyQsytkg4blMh3-skGFdLfIojFj_z_UmxaEcECH9Pv6e4fYeG1AkoLp-_XuALLSJvnQCwAzU8YysATxKc.8hvvams9OiuWKtNEI6JO373p0udoJhx_SXLpOu00Kag&dib_tag=se&keywords=Trend+Micro&qid=1784905549&sprefix=trend+micro%2Caps%2C448&sr=8-1" target="_blank" class="card">
-      <span class="rank-badge">#8</span>
-      <div class="product-name"><i class="fas fa-cloud-upload-alt"></i> Trend Micro</div>
-      <span class="tagline">Maximum Security</span>
-      <div class="description">Cloud AI, Payguard, social privacy, blocks threats pre‑infection.</div>
-      <ul class="feature-list">
-        <li><i class="fas fa-check-circle"></i> Cloud AI</li>
-        <li><i class="fas fa-credit-card"></i> Payguard</li>
-        <li><i class="fas fa-facebook"></i> Social privacy</li>
-      </ul>
-    </a>
-
-    <!-- 9. Malwarebytes (Amazon search) -->
-    <a href="https://www.amazon.com/Malwarebytes-Amazon-Exclusive-Devices-Android/dp/B084L8X5VV/ref=sr_1_1?crid=2RX7OKSWN0K5Y&dib=eyJ2IjoiMSJ9.FA83SgND7BSIt3eBxcv_kkOSxqkNPWtNk4sp3aFBn48GSiCguhGZWdOc5VnOKjoDm3pKsZ-vi334baA2nfzaPAgYKmlET0el14M0-HhxqnUJepa4W-ykZGEc_zHhtLHwoHiJwF6WStUnpOuSpPqCb1Oq4bQz8r35J3sfm4FCegi93ouMKpwjtiArZIBWP0CtLVx9zZtNLUs25DSMi0CIvzQka1zNDCux7XJrDcA9QMo.WvJU19EJHo82TClmPo2ia-bnINEAcmSI0-67IZ3tH-A&dib_tag=se&keywords=Malwarebytes&qid=1784905577&sprefix=malwarebytes%2Caps%2C416&sr=8-1&th=1" target="_blank" class="card">
-      <span class="rank-badge">#9</span>
-      <div class="product-name"><i class="fas fa-skull-crossbones"></i> Malwarebytes</div>
-      <span class="tagline">Premium+</span>
-      <div class="description">Zero‑day block, hyper scan, anti‑spyware, lightweight footprint.</div>
-      <ul class="feature-list">
-        <li><i class="fas fa-check-circle"></i> Zero‑day block</li>
-        <li><i class="fas fa-fast-forward"></i> Hyper scan</li>
-        <li><i class="fas fa-cookie-bite"></i> Anti‑spyware</li>
-      </ul>
-    </a>
-
-    <!-- 10. Sophos (Amazon search) -->
-    <a href="https://www.amazon.com/Rack-Mount-Kit-Sophos-RM-SR-T12/dp/B09RC7HW1W/ref=sr_1_1?crid=2WNBC2XBUTBM8&dib=eyJ2IjoiMSJ9.3dJ3n_quKWJRwGHseRaQgBtkBco7oLG5ocBLVRSOBcOeOyQNuh_PwBUvvFiWJ9rsO2qXgV4SxtEeBV-ZWpw5BvqW_nJ3SG99vgYueNEUz1I.jkscVi_Am5aVqYvLYOPOKM4ocUv2THPzXj4xAKSb5yo&dib_tag=se&keywords=Sophos+home&qid=1784905625&sprefix=sophos+home%2Caps%2C428&sr=8-1" target="_blank" class="card">
-      <span class="rank-badge">#10</span>
-      <div class="product-name"><i class="fas fa-network-wired"></i> Sophos Home</div>
-      <span class="tagline">Premium</span>
-      <div class="description">Enterprise‑grade, remote management, parental controls, ransomware.</div>
-      <ul class="feature-list">
-        <li><i class="fas fa-check-circle"></i> Remote manage</li>
-        <li><i class="fas fa-child"></i> Parental controls</li>
-        <li><i class="fas fa-file-shield"></i> Ransomware</li>
-      </ul>
-    </a>
-
+  <!-- ========= TERMS & CONDITIONS PAGE ========= -->
+  <div id="termsPage" class="page-content">
+    <h2><i class="fas fa-file-contract"></i> Terms & Conditions</h2>
+    <p><strong>Last updated:</strong> July 2026</p>
+    <p>Welcome to TopITGuide. By using our website, you agree to the following terms and conditions. Please read them carefully.</p>
+    
+    <h3>1. Acceptance of Terms</h3>
+    <p>By accessing this website, you agree to be bound by these Terms & Conditions and all applicable laws and regulations. If you do not agree, please do not use our site.</p>
+    
+    <h3>2. Use of Content</h3>
+    <p>All content provided on this site is for informational purposes only. We reserve the right to modify, update, or remove content at any time without prior notice.</p>
+    
+    <h3>3. Affiliate Disclosure</h3>
+    <p>TopITGuide participates in affiliate marketing programs. This means we may earn commissions on purchases made through links on our site. This does not affect our editorial independence or product rankings.</p>
+    
+    <h3>4. User Conduct</h3>
+    <p>Users agree not to misuse the site, including but not limited to attempting to hack, distribute malware, or engage in any illegal activity.</p>
+    
+    <h3>5. Limitation of Liability</h3>
+    <p>We provide information "as is" without warranties of any kind. We are not liable for any damages arising from the use of this site or reliance on its content.</p>
+    
+    <h3>6. Governing Law</h3>
+    <p>These terms are governed by the laws of India. Any disputes shall be resolved in the courts of New Delhi.</p>
+    
+    <a href="#" class="page-back" onclick="showHome()"><i class="fas fa-arrow-left"></i> Back to Home</a>
   </div>
 
-  <!-- ========= SUMMARY ========= -->
-  <div class="summary-deep">
-    <h3><i class="fas fa-file-alt"></i> Why these 10? · In‑Depth</h3>
-    <p>
-      <strong>Bitdefender</strong> consistently tops charts with near‑perfect protection and 
-      a feature‑rich suite (VPN, anti‑tracker, ransomware remediation). <strong>Norton 360</strong> 
-      is the ultimate identity protection bundle with LifeLock and dark web monitoring. 
-      <strong>McAfee+</strong> offers unlimited VPN and family‑oriented tools. <strong>Kaspersky</strong> 
-      and <strong>ESET</strong> are the go‑to choices for users who demand low system impact 
-      and high configurability. <strong>Avast One</strong> and <strong>AVG Ultimate</strong> 
-      provide reliable protection with generous free tiers. <strong>Trend Micro</strong> uses 
-      cloud AI to stop threats before they execute, while <strong>Malwarebytes</strong> excels 
-      at zero‑day and exploit protection. Finally, <strong>Sophos Home</strong> brings 
-      enterprise‑grade features like remote management and advanced web filtering to home users.
-    </p>
-    <p style="margin-top: 0.6rem;">
-      All solutions include <strong>real‑time scanning, anti‑phishing, firewall, and ransomware 
-      defence</strong>. Most also bundle <strong>VPN, password manager, parental controls, and 
-      system optimisers</strong>. With 2026 threats evolving faster than ever, this top 10 
-      represents the gold standard in digital protection — backed by independent lab tests 
-      and millions of users worldwide.
-    </p>
+  <!-- ========= PRIVACY POLICY PAGE ========= -->
+  <div id="privacyPage" class="page-content">
+    <h2><i class="fas fa-lock"></i> Privacy Policy</h2>
+    <p><strong>Last updated:</strong> July 2026</p>
+    <p>At TopITGuide, we take your privacy seriously. This policy explains how we collect, use, and protect your personal information.</p>
+    
+    <h3>1. Information We Collect</h3>
+    <p>We may collect non-personal information such as browser type, device information, and pages visited. We do not collect personal data unless voluntarily provided (e.g., through contact forms).</p>
+    
+    <h3>2. Cookies</h3>
+    <p>We use cookies to improve user experience and analyze site traffic. You can disable cookies in your browser settings at any time.</p>
+    
+    <h3>3. Third-Party Links</h3>
+    <p>Our site contains links to third-party websites (e.g., Amazon). We are not responsible for the privacy practices of these external sites.</p>
+    
+    <h3>4. Data Security</h3>
+    <p>We implement reasonable security measures to protect your information. However, no online transmission is 100% secure.</p>
+    
+    <h3>5. Changes to Privacy Policy</h3>
+    <p>We may update this policy periodically. Changes will be posted on this page with an updated revision date.</p>
+    
+    <h3>6. Contact Us</h3>
+    <p>If you have any questions about this Privacy Policy, please contact us at: support@topitguide.com</p>
+    
+    <a href="#" class="page-back" onclick="showHome()"><i class="fas fa-arrow-left"></i> Back to Home</a>
   </div>
 
   <!-- ========= FOOTER ========= -->
   <footer class="footer">
     <div class="footer-col">
       <strong><i class="fas fa-sitemap"></i> Quick Links</strong>
-      <a href="#"><i class="fas fa-home"></i> Home</a>
+      <a href="#" onclick="showHome()"><i class="fas fa-home"></i> Home</a>
       <a href="#"><i class="fas fa-store"></i> Shop</a>
       <a href="#"><i class="fas fa-address-card"></i> About Us</a>
       <a href="#"><i class="fas fa-envelope"></i> Contact</a>
@@ -722,10 +840,12 @@
     </div>
 
     <div class="footer-col">
-      <strong><i class="fas fa-info-circle"></i> Legal</strong>
-      <div class="footer-disclaimer">
+      <strong><i class="fas fa-gavel"></i> Legal</strong>
+      <a href="#" onclick="showTerms()"><i class="fas fa-file-contract"></i> Terms & Conditions</a>
+      <a href="#" onclick="showPrivacy()"><i class="fas fa-lock"></i> Privacy Policy</a>
+      <div class="footer-disclaimer" style="margin-top:8px;">
         <i class="fas fa-exclamation-triangle"></i> 
-        <strong>Disclaimer:</strong> This is an independent review site. All product names, logos, and brands are property of their respective owners. We may earn a commission from qualifying purchases made through links on this page. All information is for informational purposes only.
+        <strong>Disclaimer:</strong> Independent review site. We may earn a commission from qualifying purchases.
       </div>
       <div class="footer-social">
         <i class="fab fa-facebook"></i>
@@ -742,5 +862,45 @@
   </div>
 
 </div> <!-- end container -->
+
+<script>
+  // Page navigation functions
+  function showHome() {
+    document.getElementById('homePage').style.display = 'block';
+    document.getElementById('termsPage').classList.remove('active');
+    document.getElementById('privacyPage').classList.remove('active');
+    document.getElementById('termsPage').style.display = 'none';
+    document.getElementById('privacyPage').style.display = 'none';
+    // scroll to top
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    return false;
+  }
+
+  function showTerms() {
+    document.getElementById('homePage').style.display = 'none';
+    document.getElementById('termsPage').style.display = 'block';
+    document.getElementById('termsPage').classList.add('active');
+    document.getElementById('privacyPage').classList.remove('active');
+    document.getElementById('privacyPage').style.display = 'none';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    return false;
+  }
+
+  function showPrivacy() {
+    document.getElementById('homePage').style.display = 'none';
+    document.getElementById('privacyPage').style.display = 'block';
+    document.getElementById('privacyPage').classList.add('active');
+    document.getElementById('termsPage').classList.remove('active');
+    document.getElementById('termsPage').style.display = 'none';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    return false;
+  }
+
+  // Ensure home is visible on load
+  document.addEventListener('DOMContentLoaded', function() {
+    showHome();
+  });
+</script>
+
 </body>
 </html>
